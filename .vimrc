@@ -52,6 +52,7 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+set backspace=indent,eol,start  " fix backspace
 "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 " Remove trailing whitespaces and ^M chars
 " To disable the stripping of whitespace, add the following to your
