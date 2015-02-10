@@ -22,7 +22,6 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'beyondwords/vim-twig'
 Plugin 'elzr/vim-json'
 Plugin 'groenewege/vim-less'
-Plugin 'tpope/vim-haml'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mattn/emmet-vim'
 Plugin 'spf13/vim-colors'
@@ -89,6 +88,49 @@ au BufNewFile,BufRead *.coffee set filetype=coffee
 :nmap <F1> :echo<CR>
 :imap <F1> <C-o>:echo<CR>
 
+" CtrlP
+let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+
+" NERDTree
+map <C-e> <plug>NERDTreeTabsToggle<CR>
+map <leader>e :NERDTreeFind<CR>
+nmap <leader>nt :NERDTreeFind<CR>
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+let g:nerdtree_tabs_open_on_gui_startup=0
+if isdirectory(argv(0))
+    bd
+    autocmd vimenter * exe "cd" argv(0)
+    autocmd VimEnter * NERDTree
+elseif empty(argv(0))
+    bd
+    autocmd vimenter * exe "cd ."
+    autocmd VimEnter * NERDTree
+endif
+
+" PIV
+let g:DisableAutoPHPFolding = 1
+
+" Vdebug
+let g:vdebug_options = {
+            \ 'break_on_open': 1,
+            \ 'port': '9001',
+            \ 'path_maps': {"/clients/sites/dev/symfony": "/Users/ryan/Code/DIW-web/symfony"},
+            \ 'server': ''
+            \}
+
+" Sessions
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+
+" Neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+
 " Initialize Directories like SPF13
 function! InitializeDirectories()
     let parent = $HOME
@@ -126,47 +168,3 @@ function! InitializeDirectories()
     endfor
 endfunction
 call InitializeDirectories()
-
-" CtrlP
-let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-
-" NERDTree
-map <C-e> <plug>NERDTreeTabsToggle<CR>
-map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
-let g:nerdtree_tabs_open_on_gui_startup=0
-
-" PIV
-let g:DisableAutoPHPFolding = 1
-
-" Vdebug
-let g:vdebug_options = {
-            \ 'break_on_open': 1,
-            \ 'port': '9001',
-            \ 'path_maps': {"/clients/sites/dev/symfony": "/Users/ryan/Code/DIW-web/symfony"},
-            \ 'server': ''
-            \}
-
-if isdirectory(argv(0))
-    bd
-    autocmd vimenter * exe "cd" argv(0)
-    autocmd VimEnter * NERDTree
-elseif empty(argv(0))
-    bd
-    autocmd vimenter * exe "cd ."
-    autocmd VimEnter * NERDTree
-endif
-
-" Sessions
-set ssop-=options    " do not store global and local values in a session
-set ssop-=folds      " do not store folds
-
-" Neocomplcache
-let g:neocomplcache_enable_at_startup = 1
