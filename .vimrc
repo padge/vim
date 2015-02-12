@@ -37,6 +37,8 @@ filetype plugin indent on    " required
 color zenburn
 syntax on
 
+hi MatchParen cterm=bold ctermbg=white ctermfg=black
+
 let mapleader = ','
 let g:bufferline_echo=0 "Get rid of annoying Press Enter or type command to continue...
 
