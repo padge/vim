@@ -20,9 +20,10 @@ Plugin 'matchit.zip'
 Plugin 'spf13/PIV'
 Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'beyondwords/vim-twig'
-Plugin 'elzr/vim-json'
+"Plugin 'elzr/vim-json'
 Plugin 'groenewege/vim-less'
 Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'spf13/vim-colors'
 Plugin 'flazz/vim-colorschemes'
@@ -77,6 +78,7 @@ au FileType json setl sw=2 sts=2 et
 au FileType python setl sw=4 sts=4 et
 au FileType php setl sw=4 sts=4 et
 au FileType haskell,puppet,ruby,yml setl sw=2 sts=2 et
+au FileType yaml setl sw=2 sts=2 et
 au BufRead,BufNewFile *.less setl sw=2 sts=2 et
 au BufNewFile,BufRead *.html.twig set filetype=html.twig
 au BufNewFile,BufRead *.coffee set filetype=coffee
