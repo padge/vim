@@ -60,6 +60,7 @@ set wildignore+=app/cache/**/*,*/app/cache/*,*/tmp/*,*.so,*.swp,*.zip
 set nofoldenable
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
+set clipboard=unnamed
 
 " File Indentation
 set autoindent                  " Indent at the same level of the previous line
